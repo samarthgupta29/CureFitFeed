@@ -9,19 +9,25 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
 
-import com.example.curefitfeed.Adapter.CustomAdapter;
+import com.example.curefitfeed.Adapter.CultViewPagerAdapter;
+import com.example.curefitfeed.Adapter.EatViewPagerAdapter;
 import com.example.curefitfeed.Adapter.EatAdapter;
+import com.example.curefitfeed.Model.CultVpImage;
+import com.example.curefitfeed.Model.CultVpImages;
 import com.example.curefitfeed.R;
 import com.example.curefitfeed.Repository.InputStreamHelper;
 import com.example.curefitfeed.ViewModel.UnsplashImageViewModel;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -33,7 +39,8 @@ public class CultFragment extends Fragment {
     private RecyclerView.LayoutManager layoutManager;
     private ViewPager viewPager;
     int[] images = {R.drawable.pic, R.drawable.pic2};
-    private CustomAdapter customAdapter;
+    private CultViewPagerAdapter cultViewPagerAdapter;
+    private List<CultVpImage> imageList = new ArrayList<>();
     int currentPage = 0;
     Timer timer;
     final long DELAY_MS = 100;//delay in milliseconds before task is to be executed
@@ -68,13 +75,19 @@ public class CultFragment extends Fragment {
         View view = inflater.inflate(R.layout.cult_fragment, null);
         cultRv = view.findViewById(R.id.cultFragmentRv);
         cultRv.setHasFixedSize(true);
-        /*viewPager = view.findViewById(R.id.cultVp);
-        customAdapter = new CustomAdapter(getContext(), images);
-        viewPager.setAdapter(customAdapter);
+        viewPager = view.findViewById(R.id.cultVp);
+        unsplashImageViewModel.getCultVpImages().observe(getViewLifecycleOwner(), new Observer<CultVpImages>() {
+            @Override
+            public void onChanged(CultVpImages cultVpImages) {
+                imageList.addAll(cultVpImages.getCultVpImages());
+                cultViewPagerAdapter = new CultViewPagerAdapter(getContext(), imageList);
+                viewPager.setAdapter(cultViewPagerAdapter);
+            }
+        });
         final Handler handler = new Handler();
         final Runnable Update = new Runnable() {
             public void run() {
-                if (currentPage == (images.length + 1) - 1) { // 3 is the number of images
+                if (currentPage == (imageList.size() + 1) - 1) { // 3 is the number of images
                     currentPage = 0;
                 }
                 viewPager.setCurrentItem(currentPage++, true);
@@ -87,7 +100,7 @@ public class CultFragment extends Fragment {
             public void run() {
                 handler.post(Update);
             }
-        }, DELAY_MS, PERIOD_MS);*/
+        }, DELAY_MS, PERIOD_MS);
         layoutManager = new LinearLayoutManager(getContext(), RecyclerView.VERTICAL, false);
         cultRv.setLayoutManager(layoutManager);
         eatAdapter = new EatAdapter(getActivity(), unsplashImageViewModel.getCultFeed());

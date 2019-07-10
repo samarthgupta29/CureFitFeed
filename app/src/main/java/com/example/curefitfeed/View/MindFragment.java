@@ -11,19 +11,25 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
 
-import com.example.curefitfeed.Adapter.CustomAdapter;
+import com.example.curefitfeed.Adapter.EatViewPagerAdapter;
 import com.example.curefitfeed.Adapter.EatAdapter;
+import com.example.curefitfeed.Adapter.MindViewPagerAdapter;
+import com.example.curefitfeed.Model.MindVpImage;
+import com.example.curefitfeed.Model.MindVpImages;
 import com.example.curefitfeed.R;
 import com.example.curefitfeed.Repository.InputStreamHelper;
 import com.example.curefitfeed.ViewModel.UnsplashImageViewModel;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -33,8 +39,9 @@ public class MindFragment extends Fragment {
     private EatAdapter eatAdapter;
     private RecyclerView.LayoutManager layoutManager;
     private ViewPager viewPager;
-    int[] images = {R.drawable.pic,R.drawable.pic2};
-    private CustomAdapter customAdapter;
+    int[] images = {R.drawable.pic, R.drawable.pic2};
+    private MindViewPagerAdapter mindViewPagerAdapter;
+    private List<MindVpImage> mindVpImagesList = new ArrayList<>();
     int currentPage = 0;
     Timer timer;
     final long DELAY_MS = 100;//delay in milliseconds before task is to be executed
@@ -50,7 +57,7 @@ public class MindFragment extends Fragment {
             @Override
             public InputStream getInputStream(String file) {
                 try {
-                    if(getActivity()!=null){
+                    if (getActivity() != null) {
                         return getActivity().getAssets().open(file);
                     } else {
                         return null;
@@ -67,16 +74,22 @@ public class MindFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.mind_fragment,null);
+        View view = inflater.inflate(R.layout.mind_fragment, null);
         mindRv = view.findViewById(R.id.mindRv);
         mindRv.setHasFixedSize(true);
         viewPager = view.findViewById(R.id.mindVp);
-        /*customAdapter = new CustomAdapter(getContext(), images);
-        viewPager.setAdapter(customAdapter);
+        unsplashImageViewModel.getMindVpImages().observe(getViewLifecycleOwner(), new Observer<MindVpImages>() {
+            @Override
+            public void onChanged(MindVpImages mindVpImages) {
+                mindVpImagesList.addAll(mindVpImages.getMindVpImages());
+                mindViewPagerAdapter = new MindViewPagerAdapter(getContext(), mindVpImagesList);
+                viewPager.setAdapter(mindViewPagerAdapter);
+            }
+        });
         final Handler handler = new Handler();
         final Runnable Update = new Runnable() {
             public void run() {
-                if (currentPage == (images.length + 1) - 1) { // 3 is the number of images
+                if (currentPage == (mindVpImagesList.size() + 1) - 1) { // 3 is the number of images
                     currentPage = 0;
                 }
                 viewPager.setCurrentItem(currentPage++, true);
@@ -89,11 +102,11 @@ public class MindFragment extends Fragment {
             public void run() {
                 handler.post(Update);
             }
-        }, DELAY_MS, PERIOD_MS);*/
+        }, DELAY_MS, PERIOD_MS);
 
-        layoutManager = new LinearLayoutManager(getContext(),RecyclerView.VERTICAL,false);
+        layoutManager = new LinearLayoutManager(getContext(), RecyclerView.VERTICAL, false);
         mindRv.setLayoutManager(layoutManager);
-        eatAdapter = new EatAdapter(getActivity(),unsplashImageViewModel.getMindFeed());
+        eatAdapter = new EatAdapter(getActivity(), unsplashImageViewModel.getMindFeed());
         mindRv.setAdapter(eatAdapter);
         return view;
     }

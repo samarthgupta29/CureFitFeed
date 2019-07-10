@@ -155,13 +155,12 @@ public class UnsplashImageRepository {
         return mList;
     }
 
-    public MutableLiveData<EatVpImages> getEatVpImages(){
+    public MutableLiveData<EatVpImages> getEatVpImages() {
         MutableLiveData<EatVpImages> eatVpImagesMutableLiveData = new MutableLiveData<>();
         unsplashImageAPI.getEatVpImages().enqueue(new Callback<EatVpImages>() {
             @Override
             public void onResponse(Call<EatVpImages> call, Response<EatVpImages> response) {
-                if(response.body() != null){
-                    Log.d("Dataa",response.body().getEatVpImages().toString());
+                if (response.body() != null) {
                     eatVpImagesMutableLiveData.postValue(response.body());
                 }
             }
@@ -174,12 +173,12 @@ public class UnsplashImageRepository {
         return eatVpImagesMutableLiveData;
     }
 
-    public MutableLiveData<MindVpImages> getMindVpImages(){
+    public MutableLiveData<MindVpImages> getMindVpImages() {
         MutableLiveData<MindVpImages> mindVpImagesMutableLiveData = new MutableLiveData<>();
         unsplashImageAPI.getMindVpImages().enqueue(new Callback<MindVpImages>() {
             @Override
             public void onResponse(Call<MindVpImages> call, Response<MindVpImages> response) {
-                if(response.body() != null){
+                if (response.body() != null) {
                     mindVpImagesMutableLiveData.postValue(response.body());
                 }
             }
@@ -193,19 +192,19 @@ public class UnsplashImageRepository {
         return mindVpImagesMutableLiveData;
     }
 
-    public MutableLiveData<CultVpImages> getCultVpImages(){
+    public MutableLiveData<CultVpImages> getCultVpImages() {
         MutableLiveData<CultVpImages> cultVpImagesMutableLiveData = new MutableLiveData<>();
         unsplashImageAPI.getCultVpImages().enqueue(new Callback<CultVpImages>() {
             @Override
             public void onResponse(Call<CultVpImages> call, Response<CultVpImages> response) {
-                if(response.body() != null){
+                if (response.body() != null) {
                     cultVpImagesMutableLiveData.postValue(response.body());
                 }
             }
 
             @Override
             public void onFailure(Call<CultVpImages> call, Throwable t) {
-                    t.printStackTrace();
+                t.printStackTrace();
             }
         });
 

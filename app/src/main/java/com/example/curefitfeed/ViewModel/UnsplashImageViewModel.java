@@ -7,8 +7,10 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
+import com.example.curefitfeed.Model.CultVpImages;
 import com.example.curefitfeed.Model.CustomListItem;
 import com.example.curefitfeed.Model.EatVpImages;
+import com.example.curefitfeed.Model.MindVpImages;
 import com.example.curefitfeed.Model.UnsplashImagePOJO;
 import com.example.curefitfeed.Model.UnsplashImageResult;
 import com.example.curefitfeed.Repository.InputStreamHelper;
@@ -32,14 +34,20 @@ public class UnsplashImageViewModel extends ViewModel {
         }
         unsplashImageRepository = UnsplashImageRepository.getInstance(inputStreamHelper);
         //unsplashImagePOJOMutableLiveData = unsplashImageRepository.getImages();
-        eatVpImagesMutableLiveData = unsplashImageRepository.getEatVpImages();
+        //eatVpImagesMutableLiveData = unsplashImageRepository.getEatVpImages();
     }
 
     public LiveData<List<UnsplashImagePOJO>> getUnsplashImageRepository() {
         return unsplashImagePOJOMutableLiveData;
     }
     public LiveData<EatVpImages> getEatVpImages(){
-        return eatVpImagesMutableLiveData;
+        return unsplashImageRepository.getEatVpImages();
+    }
+    public LiveData<MindVpImages> getMindVpImages(){
+        return unsplashImageRepository.getMindVpImages();
+    }
+    public LiveData<CultVpImages> getCultVpImages(){
+        return unsplashImageRepository.getCultVpImages();
     }
 
     public List<CustomListItem> getEatFeed(){

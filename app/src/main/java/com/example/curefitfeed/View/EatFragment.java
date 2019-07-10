@@ -15,10 +15,9 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import androidx.viewpager.widget.PagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
-import com.example.curefitfeed.Adapter.CustomAdapter;
+import com.example.curefitfeed.Adapter.EatViewPagerAdapter;
 import com.example.curefitfeed.Adapter.EatAdapter;
 import com.example.curefitfeed.Model.EatVpImage;
 import com.example.curefitfeed.Model.EatVpImages;
@@ -40,12 +39,13 @@ public class EatFragment extends Fragment {
     private LinearLayoutManager linearLayoutManager;
     private UnsplashImageViewModel unsplashImageViewModel;
     private ViewPager viewPager;
-    int[] images = {R.drawable.pic,R.drawable.pic2};
-    private CustomAdapter customAdapter;
+    int[] images = {R.drawable.pic, R.drawable.pic2};
+    private EatViewPagerAdapter eatViewPagerAdapter;
     int currentPage = 0;
     Timer timer;
     final long DELAY_MS = 100;//delay in milliseconds before task is to be executed
     final long PERIOD_MS = 3000;
+    List<EatVpImage> eatVpImageList = new ArrayList<>();
 
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     @Override
@@ -56,7 +56,7 @@ public class EatFragment extends Fragment {
             @Override
             public InputStream getInputStream(String file) {
                 try {
-                    if(getActivity()!=null){
+                    if (getActivity() != null) {
                         return getActivity().getAssets().open(file);
                     } else {
                         return null;
@@ -66,11 +66,8 @@ public class EatFragment extends Fragment {
                     e.printStackTrace();
                     return null;
                 }
-
             }
         });
-
-
     }
 
     @Override
@@ -83,20 +80,19 @@ public class EatFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.eat_fragment, null);
         eatRv = view.findViewById(R.id.eatFragmentRv);
-        viewPager=view.findViewById(R.id.eatVp);
-        unsplashImageViewModel.getEatVpImages();
+        viewPager = view.findViewById(R.id.eatVp);
         unsplashImageViewModel.getEatVpImages().observe(getViewLifecycleOwner(), new Observer<EatVpImages>() {
             @Override
             public void onChanged(EatVpImages eatVpImages) {
-                List<EatVpImage> eatVpImageList = new ArrayList<>(eatVpImages.getEatVpImages());
-                customAdapter = new CustomAdapter(getContext(),eatVpImageList);
-                viewPager.setAdapter(customAdapter);
+                eatVpImageList.addAll(eatVpImages.getEatVpImages());
+                eatViewPagerAdapter = new EatViewPagerAdapter(getContext(), eatVpImageList);
+                viewPager.setAdapter(eatViewPagerAdapter);
             }
         });
         final Handler handler = new Handler();
         final Runnable Update = new Runnable() {
             public void run() {
-                if (currentPage == (images.length + 1) - 1) { // 3 is the number of images
+                if (currentPage == (eatVpImageList.size() + 1) - 1) { // 3 is the number of images
                     currentPage = 0;
                 }
                 viewPager.setCurrentItem(currentPage++, true);
