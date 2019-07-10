@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingBottom="10dp">
+
+
+    <ImageView
+        android:id="@+id/dishIv"
+        android:layout_width="144dp"
+        android:layout_height="155dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="16dp"
+        android:scaleType="centerCrop"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/dishTitleTv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:inputType="textMultiLine"
+        android:scrollHorizontally="false"
+        android:text="Lucknowi Chicken \nBiryani"
+        android:textColor="#111111"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textSize="20sp"
+        app:layout_constraintStart_toEndOf="@+id/dishIv"
+        app:layout_constraintTop_toTopOf="@+id/dishIv" />
+
+    <TextView
+        android:id="@+id/calTv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="44dp"
+        android:layout_marginLeft="44dp"
+        android:layout_marginTop="16dp"
+        android:text="TextView"
+        app:layout_constraintStart_toEndOf="@+id/dishIv"
+        app:layout_constraintTop_toBottomOf="@+id/dishTitleTv" />
+
+    <TextView
+        android:id="@+id/fitcashTv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="72dp"
+        android:layout_marginLeft="72dp"
+        android:layout_marginTop="16dp"
+        android:text="TextView"
+        android:textColor="#111111"
+        app:layout_constraintStart_toEndOf="@+id/dishIv"
+        app:layout_constraintTop_toBottomOf="@+id/calTv" />
+
+    <Button
+        android:id="@+id/addBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="156dp"
+        android:layout_marginLeft="156dp"
+        android:text="Add"
+        android:background="@drawable/mybutton"
+        android:textColor="@android:color/holo_red_light"
+        android:stateListAnimator="@null"
+        android:backgroundTint="@android:color/white"
+        app:layout_constraintStart_toEndOf="@+id/dishIv"
+        app:layout_constraintTop_toBottomOf="@+id/fitcashTv" />
+
+    <TextView
+        android:id="@+id/priceTv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="TextView"
+        android:textColor="#111111"
+        android:textStyle="bold"
+        android:textSize="17sp"
+        app:layout_constraintStart_toStartOf="@+id/dishTitleTv"
+        app:layout_constraintTop_toBottomOf="@+id/fitcashTv" />
+
+    <TextView
+        android:id="@+id/dietTypeTv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="16dp"
+        android:text="TextView"
+        app:layout_constraintStart_toEndOf="@+id/calTv"
+        app:layout_constraintTop_toBottomOf="@+id/dishTitleTv" />
+
+    <TextView
+        android:id="@+id/actualPriceTv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="7dp"
+        android:layout_marginLeft="7dp"
+        android:text="TextView"
+        app:layout_constraintBaseline_toBaselineOf="@+id/priceTv"
+        app:layout_constraintStart_toEndOf="@+id/priceTv" />
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="12dp"
+        android:layout_height="14dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintStart_toEndOf="@+id/dishIv"
+        app:layout_constraintTop_toBottomOf="@+id/dishTitleTv"
+        app:srcCompat="@drawable/non_veg" />
+
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="48dp"
+        android:layout_height="18dp"
+        android:scaleType="centerCrop"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toEndOf="@+id/dishIv"
+        app:layout_constraintTop_toBottomOf="@+id/calTv"
+        app:srcCompat="@drawable/curefit" />
+</androidx.constraintlayout.widget.ConstraintLayout>

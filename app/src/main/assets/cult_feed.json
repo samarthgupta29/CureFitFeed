@@ -1,0 +1,140 @@
+{
+  "cultFeed": [
+    {
+      "type": "cultunlimitedmembership_header",
+      "headerInfo_1": "Access to 180+ Cult Centres",
+      "headerInfo_2": "Free access to mind.fit & outdoor centers",
+      "headerInfo_3": "Attend unlimited number of classes",
+      "cultunlimitedmembership_details": [
+        {
+          "image_url": "https://images.unsplash.com/photo-1470468969717-61d5d54fd036?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60",
+          "price": "41790",
+          "offer_price": "19990"
+        },
+        {
+          "image_url": "https://images.unsplash.com/photo-1521804906057-1df8fdb718b7?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60",
+          "price": "41790",
+          "offer_price": "19990"
+        },
+        {
+          "image_url": "https://images.unsplash.com/photo-1552196563-55cd4e45efb3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60",
+          "price": "41790",
+          "offer_price": "19990"
+        }
+      ]
+    },
+    {
+      "type": "cultmonthlysubscription_header",
+      "image_url": "https://images.unsplash.com/photo-1490818387583-1baba5e638af?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60",
+      "info": "Pay monthly for your membership, get unlimited access and many more",
+      "first_month": "5990",
+      "second_month_onwards": "4990"
+    },
+    {
+      "type": "cultselectmembership_header",
+      "headerInfo_1": "Access to one Cult center only",
+      "headerInfo_2": "Access to mind.fit not included",
+      "headerInfo_3": "Attend unlimited classes",
+      "headerInfo_4": "Available at select centers only",
+      "cultselectmembership_details": [
+        {
+          "image_url": "https://images.unsplash.com/photo-1509833903111-9cb142f644e4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60",
+          "price": "41790",
+          "offer_price": "19990"
+        },
+        {
+          "image_url": "https://images.unsplash.com/photo-1486218119243-13883505764c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60",
+          "price": "41790",
+          "offer_price": "19990"
+        },
+        {
+          "image_url": "https://images.unsplash.com/photo-1448669476458-ef3a9136823f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60",
+          "price": "41790",
+          "offer_price": "19990"
+        }
+      ]
+    },
+    {
+      "type": "whycultfit_header",
+      "headerInfo_1": "Four reasons you should join Cult",
+      "whycultfit_details": [
+        {
+          "heading": "Trainer led sessions",
+          "info": "Workout with real athletes,Learn skills and techniques for life"
+        },
+        {
+          "heading": "Group Classes",
+          "info": "Highly engaging and energy packed. You will never lose the tempo"
+        },
+        {
+          "heading": "Multiple formats",
+          "info": "Formats for one and all. Mix them up to break the routine"
+        },
+        {
+          "heading": "State of the art centers",
+          "info": "Never seen before centers. Feel the vibe of being an athlete"
+        }
+      ]
+    },
+    {
+      "type": "cultworkout_header",
+      "headerInfo_1": "Workout formats for one and all",
+      "cultworkout_details": [
+        {
+          "name": "Yoga",
+          "image_url": "https://images.unsplash.com/photo-1507761862811-98432ab53cde?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60"
+        },
+        {
+          "name": "Boxing",
+          "image_url": "https://images.unsplash.com/photo-1496979551903-46e46589a88b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60"
+        },
+        {
+          "name": "Strength & Conditioning",
+          "image_url": "https://images.unsplash.com/photo-1533681904393-9ab6eee7e408?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60"
+        },
+        {
+          "name": "Sports Conditioning",
+          "image_url": "https://images.unsplash.com/photo-1483721310020-03333e577078?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60"
+        },
+        {
+          "name": "Sports",
+          "image_url": "https://images.unsplash.com/photo-1546483875-ad9014c88eba?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60"
+        },
+        {
+          "name": "Dance Fitness",
+          "image_url": "https://images.unsplash.com/photo-1527698205475-0779b7bb9ef9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60"
+        }
+      ]
+    },
+    {
+      "type": "trainer_header",
+      "headerInfo_1": "Train with real life athletes",
+      "trainer_details": [
+        {
+          "trainer_name": "Tom",
+          "image_url": "https://images.unsplash.com/photo-1530645298377-82c8416d3f90?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60"
+        },
+        {
+          "trainer_name": "Fineas",
+          "image_url": "https://images.unsplash.com/photo-1481824429379-07aa5e5b0739?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60"
+        },
+        {
+          "trainer_name": "Rafaella",
+          "image_url": "https://images.unsplash.com/photo-1523496563225-ee8885d39edf?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60"
+        },
+        {
+          "trainer_name": "Patrick",
+          "image_url": "https://images.unsplash.com/photo-1508341591423-4347099e1f19?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60"
+        },
+        {
+          "trainer_name": "John",
+          "image_url": "https://images.unsplash.com/photo-1507197110294-b6bcb126fcda?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60"
+        },
+        {
+          "trainer_name": "Jamie",
+          "image_url": "https://images.unsplash.com/photo-1480535339474-e083439a320d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60"
+        }
+      ]
+    }
+  ]
+}
