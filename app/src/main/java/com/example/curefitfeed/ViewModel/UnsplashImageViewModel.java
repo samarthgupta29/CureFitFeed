@@ -32,14 +32,14 @@ public class UnsplashImageViewModel extends ViewModel {
         }
         unsplashImageRepository = UnsplashImageRepository.getInstance(inputStreamHelper);
         //unsplashImagePOJOMutableLiveData = unsplashImageRepository.getImages();
-        //eatVpImagesMutableLiveData = unsplashImageRepository.getEatVpImages();
+        eatVpImagesMutableLiveData = unsplashImageRepository.getEatVpImages();
     }
 
     public LiveData<List<UnsplashImagePOJO>> getUnsplashImageRepository() {
         return unsplashImagePOJOMutableLiveData;
     }
     public LiveData<EatVpImages> getEatVpImages(){
-        return unsplashImageRepository.getEatVpImages();
+        return eatVpImagesMutableLiveData;
     }
 
     public List<CustomListItem> getEatFeed(){

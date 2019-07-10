@@ -103,7 +103,6 @@ public class UnsplashImageRepository {
         return new Gson().fromJson(inputStreamtoString(helper.getInputStream("eat_feed.json")), EatFeedPOJO.class);
     }
 
-
     public ArrayList<CustomListItem> getMindFeed() {
         ArrayList<CustomListItem> mList = new ArrayList<>(10);
         List<MindFeed> mindFeed = new ArrayList<>();
