@@ -10,6 +10,7 @@ import androidx.lifecycle.ViewModel;
 import com.example.curefitfeed.model.CultVpImages;
 import com.example.curefitfeed.model.CustomListItem;
 import com.example.curefitfeed.model.EatVpImages;
+import com.example.curefitfeed.model.FoodDetail;
 import com.example.curefitfeed.model.MindVpImages;
 import com.example.curefitfeed.model.UnsplashImagePOJO;
 import com.example.curefitfeed.repository.InputStreamHelper;
@@ -59,6 +60,11 @@ public class UnsplashImageViewModel extends ViewModel {
 
     public List<CustomListItem> getCultFeed() {
         return unsplashImageRepository.getCultFeed();
+    }
+
+
+    public LiveData<List<FoodDetail>> getFoodDetail(){
+        return unsplashImageRepository.getFoodDetail();
     }
 
 }

@@ -1,6 +1,7 @@
 package com.example.curefitfeed.repository;
 
 import android.os.Build;
+import android.util.Log;
 
 import androidx.annotation.RequiresApi;
 import androidx.lifecycle.MutableLiveData;
@@ -17,6 +18,7 @@ import com.example.curefitfeed.model.CustomListItem;
 import com.example.curefitfeed.model.EatFeed;
 import com.example.curefitfeed.model.EatFeedPOJO;
 import com.example.curefitfeed.model.EatVpImages;
+import com.example.curefitfeed.model.FoodDetail;
 import com.example.curefitfeed.model.FoodItem;
 import com.example.curefitfeed.model.HeaderItem;
 import com.example.curefitfeed.model.MindFeed;
@@ -185,5 +187,23 @@ public class UnsplashImageRepository {
         return cultVpImagesMutableLiveData;
     }
 
+    public MutableLiveData<List<FoodDetail>> getFoodDetail(){
+        MutableLiveData<List<FoodDetail>> listMutableLiveData = new MutableLiveData<>();
+        unsplashImageAPI.getFoodDetail().enqueue(new Callback<List<FoodDetail>>() {
+            @Override
+            public void onResponse(Call<List<FoodDetail>> call, Response<List<FoodDetail>> response) {
+                if(response.body() != null){
+                    Log.d("DATA",response.body().toString());
+                }
+            }
+
+            @Override
+            public void onFailure(Call<List<FoodDetail>> call, Throwable t) {
+                t.printStackTrace();
+            }
+        });
+
+        return listMutableLiveData;
+    }
 
 }

@@ -3,6 +3,7 @@ package com.example.curefitfeed.apihelper;
 import com.example.curefitfeed.model.CultVpImages;
 import com.example.curefitfeed.model.CustomListItem;
 import com.example.curefitfeed.model.EatVpImages;
+import com.example.curefitfeed.model.FoodDetail;
 import com.example.curefitfeed.model.MindVpImages;
 import com.example.curefitfeed.model.UnsplashImagePOJO;
 
@@ -26,5 +27,8 @@ public interface UnsplashImageAPI {
 
     @GET("5d25ea852f0000a157c10c09")
     Call<CultVpImages> getCultVpImages();
+
+    @GET("5d28209b2c000058003ed7da")
+    Call<List<FoodDetail>> getFoodDetail();
 
 }

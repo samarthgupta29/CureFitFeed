@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -18,6 +19,7 @@ import com.example.curefitfeed.adapter.CultViewPagerAdapter;
 import com.example.curefitfeed.adapter.EatAdapter;
 import com.example.curefitfeed.model.CultVpImage;
 import com.example.curefitfeed.R;
+import com.example.curefitfeed.model.FoodDetail;
 import com.example.curefitfeed.viewmodel.UnsplashImageViewModel;
 
 import java.io.IOException;
